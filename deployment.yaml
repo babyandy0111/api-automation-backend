@@ -29,7 +29,7 @@ spec:
   template:
     metadata:
       labels:
-        app: whoami
+        app: whoami-from-argocd
     spec:
       containers:
         - image: containous/whoami:latest
