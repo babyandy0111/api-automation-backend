@@ -3,14 +3,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: whoami-service
+  name: whoami-service-from-argocd
   namespace: default
 spec:
   ports:
     - port: 80
       protocol: TCP
   selector:
-    app: whoami
+    app: whoami-from-argocd
 ---
 ## 建立 K8S 的 deployment
 ## 如果需要 autoscale 功能，請參考：https://kubernetes.io/zh/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
@@ -18,14 +18,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: whoami
-  name: whoami-deployment
+    app: whoami-from-argocd
+  name: whoami-deployment-from-argocd
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: whoami
+      app: whoami-from-argocd
   template:
     metadata:
       labels:
@@ -37,3 +37,18 @@ spec:
           ports:
             - containerPort: 80
               name: web
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-ingressroute
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: (PathPrefix(`/whoami`) && Host(`hello.world`))
+      services:
+        - name: whoami-service-from-argocd
+          port: 80
