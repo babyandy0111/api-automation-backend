@@ -16,7 +16,10 @@ jobs:
       ## print go version
       - run: go version
       ## run build
-      - run: go build -o mypro main.go
+      - run: |
+          go get -u github.com/swaggo/swag/cmd/swag
+          swag init
+          go build -o mypro main.go
         id: build_result
       ## 登入 docker hub
       - uses: docker/login-action@v1
