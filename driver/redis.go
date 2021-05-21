@@ -2,12 +2,12 @@ package driver
 
 import (
 	"api-automation-backend/config"
+	"api-automation-backend/pkg/godriver"
 	"fmt"
 	"os"
 	"strconv"
 
 	"github.com/go-redis/redis/v7"
-	"github.com/indochat/godriver"
 )
 
 const RedisMasterCount = 3

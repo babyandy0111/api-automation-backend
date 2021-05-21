@@ -2,12 +2,12 @@ package driver
 
 import (
 	"api-automation-backend/config"
+	"api-automation-backend/pkg/godriver"
 	"fmt"
 	"os"
 	"sync"
 	"time"
 
-	"github.com/indochat/godriver"
 	log "github.com/sirupsen/logrus"
 	"xorm.io/xorm"
 	xlog "xorm.io/xorm/log"
