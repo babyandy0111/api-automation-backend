@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"strings"
 
+	"api-automation-backend/pkg/logr"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
-	"github.com/indochat/golib/logr"
 	"go.uber.org/zap"
 )
 

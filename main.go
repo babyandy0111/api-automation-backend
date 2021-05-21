@@ -3,6 +3,7 @@ package main
 import (
 	"api-automation-backend/api"
 	"api-automation-backend/config"
+	"api-automation-backend/pkg/logr"
 	"api-automation-backend/pkg/valider"
 	"api-automation-backend/routes"
 	"flag"
@@ -12,7 +13,6 @@ import (
 	"syscall"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/indochat/golib/logr"
 	_ "go.uber.org/automaxprocs"
 	"go.uber.org/zap"
 )

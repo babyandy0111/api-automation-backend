@@ -14,9 +14,8 @@ require (
 	github.com/go-redis/redis/v7 v7.4.0
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gobuffalo/packr/v2 v2.8.1
+	github.com/gomodule/redigo v1.8.3
 	github.com/google/wire v0.5.0
-	github.com/indochat/godriver v0.0.1
-	github.com/indochat/golib v0.0.14
 	github.com/joho/godotenv v1.3.0
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.6.1

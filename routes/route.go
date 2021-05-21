@@ -5,6 +5,7 @@ import (
 	_ "api-automation-backend/docs"
 	"api-automation-backend/middleware"
 	"api-automation-backend/pkg/packs"
+	"api-automation-backend/pkg/reqcache"
 	_ "embed"
 	"fmt"
 	"net/http"
@@ -13,8 +14,6 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	golibMiddleware "github.com/indochat/golib/middleware"
-	"github.com/indochat/golib/reqcache"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
@@ -33,7 +32,7 @@ func Init() *gin.Engine {
 
 	environment := os.Getenv("ENVIRONMENT")
 
-	r.Use(golibMiddleware.LogRequest())
+	r.Use(middleware.LogRequest())
 	r.Use(middleware.ErrorResponse())
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

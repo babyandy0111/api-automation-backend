@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
+	"api-automation-backend/pkg/logr"
 	"github.com/brianvoe/gofakeit/v4"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/indochat/golib/logr"
 	"github.com/joho/godotenv"
 	"xorm.io/xorm"
 )

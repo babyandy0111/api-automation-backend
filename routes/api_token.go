@@ -4,8 +4,8 @@ import (
 	"api-automation-backend/api"
 	"time"
 
+	"api-automation-backend/pkg/reqcache"
 	"github.com/gin-gonic/gin"
-	"github.com/indochat/golib/reqcache"
 )
 
 func ApiTokenV1(r *gin.Engine, store reqcache.CacheStore) {
