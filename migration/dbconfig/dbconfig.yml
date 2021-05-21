@@ -1,0 +1,23 @@
+localhost:
+  dialect: mysql
+  datasource: root@tcp(127.0.0.1:3306)/automation?parseTime=true
+  dir: migration
+  table: migrations
+development:
+  dialect: mysql
+  datasource: ${MYSQL_USER}:${MYSQL_PASSWORD}@tcp(127.0.0.1:3307)/automation?parseTime=true
+  dir: migrations
+  table: migrations
+master:
+  dialect: mysql
+  datasource: ${MYSQL_USER}:${MYSQL_PASSWORD}@tcp(${MYSQL_HOST}:${MYSQL_PORT})/automation?parseTime=true
+  dir: migrations
+  table: migrations
+### 做 CI 測試時使用的 sandbox db
+sandbox:
+  dialect: mysql
+  datasource: root:secret@tcp(mysql:3306)/defaultdb?parseTime=true
+  ## sandbox / master / localhost 因為是使用 submodule 引入到各專案執行，所以目錄路徑使用 migration 開頭
+  ## 在 indochat-migration 執行時，起始路徑則為 migrations 開頭
+  dir: migration
+  table: migrations
